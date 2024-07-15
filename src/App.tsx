@@ -1,13 +1,40 @@
-import { useState } from 'react'
-import Calculator from './components/Calculator'
-import calc
+import { Button } from "@nextui-org/button";
+import { Card, CardBody, Input } from "@nextui-org/react";
+import { calculate } from "./calculator/calc";
+import { useState } from "react";
+import { TitleBar } from "./components/TitleBar";
+import { CalculateResult } from "./components/CaclulateResult";
 
-function App() {
+export function App() {
+  const [textInput, setTextInput] = useState("");
+  const [answer, setAnswer] = useState<string>("");
+  const [postfix, setPostfix] = useState<string>("");
+
   return (
-    <>
-    <Calculator/>
-    </>
-  )
+    <div className="flex flex-col gap-10 h-screen items-center">
+      <TitleBar />
+      <div className="flex w-1/2 items-center justify-center">
+        <Input
+          type="input"
+          label="Enter expression"
+          value={textInput}
+          onChange={(e) => setTextInput(e.target.value)}
+        />
+        <Button
+          onPress={() => {
+            const res = calculate(textInput);
+            setAnswer(res.answer.toString());
+            setPostfix(res.postfix.toString());
+          }}
+          className="border-2 flex w-32 h-16"
+          color="primary"
+        >
+          Enter
+        </Button>
+      </div>
+      <CalculateResult answer={answer} postfix={postfix} />
+    </div>
+  );
 }
 
-export default App
+export default App;

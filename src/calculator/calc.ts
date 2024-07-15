@@ -179,9 +179,18 @@ export function calculatePostfix(postfix: Token[]): number {
   return parseFloat(st.pop()!.getValue());
 }
 
-export function calculate(str: string): number {
+export type CalculateAnswer = {
+  answer: number;
+  postfix: string;
+};
+
+export function calculate(str: string): CalculateAnswer {
   const tokenList = tokenizer(str);
-  const postFix = infixToPostfix(tokenList);
-  const answer = calculatePostfix(postFix);
-  return answer;
+  const postfixTokens = infixToPostfix(tokenList);
+  const answer = calculatePostfix(postfixTokens);
+  const postfixStr = postfixTokens.map((v) => v.getValue()).join("");
+  return {
+    postfix: postfixStr,
+    answer,
+  };
 }
