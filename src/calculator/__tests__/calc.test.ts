@@ -55,25 +55,25 @@ test("Calculate inputted string correctly", () => {
   let result = calculate(str);
   let expected = 3;
 
-  expect(result).toBe(expected);
+  expect(result.answer).toBe(expected);
 
   str = "1-1.5";
   result = calculate(str);
   expected = -0.5;
 
-  expect(result).toBe(expected);
+  expect(result.answer).toBe(expected);
 
   str = "2-1.5";
   result = calculate(str);
   expected = 0.5;
 
-  expect(result).toBe(expected);
+  expect(result.answer).toBe(expected);
 
   str = "1-(10/20)*4";
   result = calculate(str);
   expected = -1;
 
-  expect(result).toBe(expected);
+  expect(result.answer).toBe(expected);
 });
 
 test("Decimal numbers detection correctly", () => {
