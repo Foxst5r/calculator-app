@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "./LanguageSelector";
+import { LanguageSelector } from "./LanguageSelector";
 
 export const TitleBar = () => {
   const { t } = useTranslation();

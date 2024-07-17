@@ -19,7 +19,7 @@ const items: LangType[] = [
   { key: "sp", label: "Español" },
 ];
 
-export default function LanguageSelector() {
+export function LanguageSelector() {
   const [selected, setSelected] = React.useState<LangType>(items[0]);
 
   return (
