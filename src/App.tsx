@@ -5,8 +5,10 @@ import { useState } from "react";
 import { TitleBar } from "./components/TitleBar";
 import { CalculateResult } from "./components/CaclulateResult";
 import { ExpressionHistory } from "./components/ExpressionHistory";
+import { useTranslation } from "react-i18next";
 
 export function App() {
+  const { t } = useTranslation();
   const [textInput, setTextInput] = useState("");
   const [answer, setAnswer] = useState<string>("");
   const [postfix, setPostfix] = useState<string>("");
@@ -18,7 +20,7 @@ export function App() {
       <div className="flex w-1/2 items-center justify-center">
         <Input
           type="input"
-          label="Enter expression"
+          label={t("calculator.input")}
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
         />
@@ -34,7 +36,7 @@ export function App() {
           className="border-2 flex w-32 h-16"
           color="primary"
         >
-          Enter
+          {t("calculator.enter")}
         </Button>
       </div>
       <CalculateResult answer={answer} postfix={postfix} />

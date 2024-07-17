@@ -1,0 +1,10 @@
+{
+  "calculator": {
+    "title": "Simple Text Calculator",
+    "input": "Enter expression",
+    "enter": "Enter",
+    "answer": "Answer:",
+    "postfix": "Postfix:",
+    "clearHistory": "Clear History"
+  }
+}
