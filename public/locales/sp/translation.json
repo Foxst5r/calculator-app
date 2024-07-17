@@ -1,0 +1,10 @@
+{
+  "calculator": {
+    "title": "Calculadora de títulos simple",
+    "input": "Entrar expresión",
+    "enter": "Entrar",
+    "answer": "Respuesta:",
+    "postfix": "Postfix:",
+    "clearHistory": "Borrar historial"
+  }
+}
