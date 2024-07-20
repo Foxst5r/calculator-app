@@ -2,8 +2,11 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
-import "./locales/en/translation.json"
-import "./locales/sp/translation.json"
+//moving locales to i18n file has to be done : This was done for the github pages deploy
+//This is because of vite cant have locales in public folder
+import translationEN from "./locales/en/translation.json";
+import translationSP from "./locales/sp/translation.json";
+
 i18n
   .use(Backend)
   //detect user language
@@ -13,12 +16,22 @@ i18n
   //init i18next
   .init({
     debug: true,
+    lng: "en",
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
     },
-    backend: {
-      loadPath: '/https://Foxst5r.github.io/calculator-app/locales/{{lng}}/{{ns}}.json',
+    resources: {
+      en: {
+        translation: {
+          ...translationEN,
+        },
+      },
+      sp: {
+        translation: {
+          ...translationSP,
+        },
+      },
     },
   });
 
