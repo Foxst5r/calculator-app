@@ -23,8 +23,8 @@ export function App() {
           label={t("calculator.input")}
           value={textInput}
           onChange={(e) => {
-            setTextInput(e.target.value)}
-          }
+            setTextInput(e.target.value);
+          }}
         />
         <Button
           onPress={() => {
